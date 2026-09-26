@@ -269,7 +269,7 @@
   }
 
   /* =========================================================
-     3. Web storage (localStorage with a memory fallback)
+     3. Web storage (localStorage)
      ========================================================= */
 
   function readStore() {
