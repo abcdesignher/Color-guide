@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Guide &mdash; Harmony Generator</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <span class="brand-dot brand-dot-1"></span>
+        <span class="brand-dot brand-dot-2"></span>
+        <span class="brand-dot brand-dot-3"></span>
+      </span>
+      <span class="brand-text">
+        <strong>Color Guide</strong>
+        <small>harmony generator</small>
+      </span>
+    </div>
+    <div class="topbar-actions">
+      <button type="button" id="copyCssBtn" class="btn btn-primary">Copy CSS</button>
+      <button type="button" id="saveBtn" class="btn">Save palette</button>
+    </div>
+  </header>
+
+  <main class="page">
+
+    <section class="panel controls">
+      <h2 class="panel-title">Color system</h2>
+
+      <fieldset class="field">
+        <legend>Harmony rule</legend>
+        <div class="chips" id="harmonyChips">
+          <button type="button" class="chip" data-harmony="monochromatic">Monochromatic</button>
+          <button type="button" class="chip" data-harmony="analogous">Analogous</button>
+          <button type="button" class="chip" data-harmony="complementary">Complementary</button>
+          <button type="button" class="chip" data-harmony="splitComplementary">Split complementary</button>
+          <button type="button" class="chip" data-harmony="triadic">Triadic</button>
+          <button type="button" class="chip" data-harmony="tetradic">Tetradic</button>
+          <button type="button" class="chip" data-harmony="square">Square</button>
+          <button type="button" class="chip" data-harmony="compound">Compound</button>
+          <button type="button" class="chip" data-harmony="shades">Shades</button>
+          <button type="button" class="chip" data-harmony="earth">Earth tones</button>
+          <button type="button" class="chip" data-harmony="pastel">Pastel</button>
+          <button type="button" class="chip" data-harmony="vibrant">Vibrant</button>
+        </div>
+      </fieldset>
+
+      <p class="rule-note" id="ruleNote">Pick a rule, then generate.</p>
+
+      <div class="slider-row">
+        <label for="hueRange">Base hue</label>
+        <input type="range" id="hueRange" min="0" max="359" step="1" value="210">
+        <output id="hueOut" for="hueRange">210&deg;</output>
+        <div class="hue-strip" id="hueStrip"></div>
+      </div>
+
+      <div class="toggle-row">
+        <span class="toggle-label">Base hue</span>
+        <div class="segmented" role="group" aria-label="Base hue behavior">
+          <button type="button" class="seg" data-huemode="random">Random</button>
+          <button type="button" class="seg is-active" data-huemode="locked">Locked</button>
+        </div>
+      </div>
+
+      <fieldset class="field">
+        <legend>Vibrancy</legend>
+        <div class="segmented segmented-wide" role="group" aria-label="Vibrancy">
+          <button type="button" class="seg" data-vibe="soft">Soft</button>
+          <button type="button" class="seg" data-vibe="balanced">Balanced</button>
+          <button type="button" class="seg" data-vibe="bold">Bold</button>
+        </div>
+      </fieldset>
+
+      <div class="actions">
+        <button type="button" id="generateBtn" class="btn btn-primary btn-block">Generate palette</button>
+        <button type="button" id="shuffleBtn" class="btn btn-block">Shuffle order</button>
+        <button type="button" id="lockBtn" class="btn btn-block" aria-pressed="false">Lock: off</button>
+        <button type="button" id="resetBtn" class="btn btn-ghost btn-block">Reset saved data</button>
+      </div>
+    </section>
+
+    <section class="panel wheel-panel">
+      <h2 class="panel-title">Color wheel</h2>
+      <div class="wheel-wrap">
+        <svg id="wheel" viewBox="0 0 320 320" role="img"
+          aria-label="Color wheel with the generated colors plotted"></svg>
+      </div>
+      <p class="hint">Dots mark each swatch&rsquo;s hue. Their distance from the center shows lightness &mdash; pale
+        sits on the outside, dark near the middle.</p>
+    </section>
+
+    <section class="panel palette-panel">
+      <div class="panel-head">
+        <h2 class="panel-title">Your six colors</h2>
+        <p class="palette-meta" id="paletteMeta">Monochromatic &middot; base 210&deg; &middot; Balanced</p>
+      </div>
+
+      <div class="swatches" id="swatches"></div>
+
+      <div class="scale-strip">
+        <span class="scale-title">Tints of the base hue</span>
+        <div class="scale-bar" id="scaleBar"></div>
+      </div>
+
+      <div class="contrast-checks">
+        <h3 class="sub-title">Contrast on white / on black</h3>
+        <div class="checks" id="checks"></div>
+      </div>
+    </section>
+
+    <section class="panel saved-panel">
+      <div class="panel-head">
+        <h2 class="panel-title">Saved palettes</h2>
+        <span class="badge" id="savedCount">0</span>
+      </div>
+      <div class="saved-list" id="savedList"></div>
+      <p class="hint">Saved in this browser with <code>localStorage</code>.</p>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <span>Color Guide &middot; plain HTML, CSS and JavaScript</span>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/app.js"></script>
+</body>
+
+</html>
