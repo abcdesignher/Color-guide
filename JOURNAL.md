@@ -5,6 +5,26 @@ mistakes I made and how I found them.
 
 ---
 
+## 26 September 2026 - Flattening the folders
+
+I had originally put the two asset files inside their own folders, so the layout was
+`index.html`, `css/styles.css` and `js/app.js`. That is a habit from bigger projects, where
+grouping assets stops the root folder turning into a pile of files.
+
+For a project this size it was the wrong call. Three files do not need sorting into
+categories, and the folders only added nesting to read through and extra places for a path
+to break.
+
+**What I did:** moved both files up next to `index.html`, so it is now just
+`index.html`, `styles.css` and `app.js`, then deleted the two empty folders. Updated the
+two references in `index.html` and the file listings in this journal and the README, then
+ran the tests again to confirm nothing broke.
+
+Worth remembering: the folders were my preference, not a requirement of the brief. If a
+project is small enough, flat is usually the better default.
+
+---
+
 ## 26 September 2026 - First version
 
 ### The brief
@@ -30,8 +50,8 @@ does not use them.
 Three files, no libraries:
 
 - `index.html` - the page
-- `css/styles.css` - the look
-- `js/app.js` - the color logic, the color wheel, and saving
+- `styles.css` - the look
+- `app.js` - the color logic, the color wheel, and saving
 
 The app has twelve color systems, three vibrancy settings, a slider for the starting
 color, a drawn color wheel, contrast checks, and saved palettes.

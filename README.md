@@ -127,10 +127,8 @@ Nothing is uploaded anywhere. There is no account and no server.
 ```
 Color guide/
 ├── index.html      the page structure
-├── css/
-│   └── styles.css  all the styling
-├── js/
-│   └── app.js      the color logic, the wheel, and saving
+├── styles.css      all the styling
+├── app.js          the color logic, the wheel, and saving
 ├── README.md       this file
 └── JOURNAL.md      the build log, including the mistakes
 ```
@@ -147,7 +145,7 @@ color in the interface is spelled out, not stored in a variable.
 **The stylesheet is light theme only.** The page background is `#f4f5f7`, panels are white,
 and text is dark grey.
 
-**No JavaScript inside the HTML.** All the script lives in `js/app.js`. The HTML has no
+**No JavaScript inside the HTML.** All the script lives in `app.js`. The HTML has no
 `onclick` handlers and no inline script blocks.
 
 **No libraries.** The color wheel is drawn with plain SVG shapes built by hand.
@@ -179,13 +177,13 @@ never at the same lightness. Six identical-looking colors are not possible.
 ## Changing things
 
 **To add a color system:** add an entry to `HARMONIES` and to `HUE_LABELS` near the top of
-`js/app.js`, then add a matching button in `index.html`. The `HUE_LABELS` list tells the app
+`app.js`, then add a matching button in `index.html`. The `HUE_LABELS` list tells the app
 what to call each hue, such as "Base" or "Complement".
 
-**To change the colors:** look for `LIGHT_RANGES` and `SHADE_RANGE` in `js/app.js`. These set
+**To change the colors:** look for `LIGHT_RANGES` and `SHADE_RANGE` in `app.js`. These set
 how light and dark the six colors are allowed to get.
 
-**To change the look:** edit the hex values in `css/styles.css`.
+**To change the look:** edit the hex values in `styles.css`.
 
 **To rename the app:** change the text in the top bar in `index.html`.
 
