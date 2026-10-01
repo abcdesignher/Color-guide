@@ -27,7 +27,7 @@ project is small enough, flat is usually the better default.
 
 ## 26 September 2026 - First version
 
-### The brief
+### The brief/simple prompt
 
 Build a small app that suggests six colors that work well together, using color theory
 rules like triadic and monochromatic. Light theme. Plain HTML, CSS and JavaScript only.
